@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
+<title>247Express Delivery Company — Global Courier & Logistics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#0D0F0E;
+  --ink2:#1A1D1B;
+  --forest:#1C4A2A;
+  --forest2:#2A6B3C;
+  --gold:#C9A84C;
+  --gold2:#E2C47A;
+  --ash:#F0F2EF;
+  --ash2:#E5E8E4;
+  --mist:#F8FAF7;
+  --smoke:#6B7068;
+  --white:#FFFFFF;
+  --ff-display:'Cormorant Garant',Georgia,serif;
+  --ff-body:'Inter',system-ui,sans-serif;
+  --ff-utility:'Space Grotesk',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:15px;}
+body{font-family:var(--ff-body);color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;}
+
+/* ─── TICKER BAR ─── */
+.ticker-bar{
+  background:var(--ink);
+  color:rgba(255,255,255,.55);
+  font-family:var(--ff-utility);
+  font-size:.72rem;
+  letter-spacing:.06em;
+  padding:.55rem 2rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  overflow:hidden;
+}
+.ticker-clock{
+  display:flex;
+  align-items:center;
+  gap:1.4rem;
+  flex-shrink:0;
+  white-space:nowrap;
+}
+.ticker-clock .time{
+  font-size:.9rem;
+  font-weight:600;
+  color:var(--gold2);
+  letter-spacing:.12em;
+  font-variant-numeric:tabular-nums;
+}
+.ticker-clock .date{color:rgba(255,255,255,.65);}
+.ticker-divider{width:1px;height:14px;background:rgba(255,255,255,.18);flex-shrink:0;}
+.ticker-scroll{
+  flex:1;
+  overflow:hidden;
+  mask-image:linear-gradient(90deg,transparent,#000 60px,#000 calc(100% - 60px),transparent);
+}
+.ticker-track{
+  display:flex;
+  gap:4rem;
+  white-space:nowrap;
+  animation:ticker-move 38s linear infinite;
+}
+@keyframes ticker-move{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-item{display:flex;align-items:center;gap:.5rem;}
+.ticker-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.ticker-email{flex-shrink:0;color:rgba(255,255,255,.5);white-space:nowrap;}
+.ticker-email a{color:var(--gold2);text-decoration:none;}
+
+/* ─── NAVBAR ─── */
+.navbar{
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  padding:.7rem 3rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  border-bottom:1px solid var(--ash2);
+  transition:box-shadow .3s;
+}
+.navbar.scrolled{box-shadow:0 4px 32px rgba(13,15,14,.1);}
+.logo-wrap{display:flex;align-items:center;gap:.8rem;text-decoration:none;}
+/* SVG Logo container */
+.logo-svg-wrap{width:42px;height:42px;flex-shrink:0;}
+.logo-text-block{display:flex;flex-direction:column;line-height:1;}
+.logo-brand{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:800;
+  font-size:1rem;
+  letter-spacing:.02em;
+  color:#1C4A2A;
+  text-transform:uppercase;
+  line-height:1.15;
+  text-shadow:0 1px 0 rgba(28,74,42,.15);
+}
+.logo-brand span.logo-accent{
+  color:#C9A84C;
+}
+.logo-sub{
+  font-family:var(--ff-body);
+  font-size:.58rem;
+  font-weight:600;
+  letter-spacing:.24em;
+  color:var(--smoke);
+  text-transform:uppercase;
+  margin-top:.28rem;
+}
+.nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none;}
+.nav-links a{
+  text-decoration:none;
+  font-family:var(--ff-utility);
+  font-size:.78rem;
+  font-weight:500;
+  letter-spacing:.08em;
+  color:var(--smoke);
+  text-transform:uppercase;
+  transition:color .2s;
+  position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:-4px;
+  width:0;height:1.5px;background:var(--gold);
+  transition:width .25s ease;
+}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{
+  background:var(--forest) !important;
+  color:var(--white) !important;
+  padding:.5rem 1.25rem;
+  border-radius:2px;
+  letter-spacing:.1em !important;
+  transition:background .2s !important;
+}
+.nav-cta::after{display:none !important;}
+.nav-cta:hover{background:var(--ink) !important;}
+
+/* ─── HERO (static, no slider) ─── */
+.hero{
+  position:relative;
+  height:440px;
+  overflow:hidden;
+  display:flex;align-items:flex-end;
+  padding:0 8% 3.5rem;
+  background-size:cover;
+  background-position:center;
+  background-image:url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&q=85');
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(15deg,rgba(13,15,14,.88) 30%,rgba(13,15,14,.35) 75%,transparent);
+}
+.slide-content{position:relative;z-index:2;max-width:600px;color:#fff;}
+.slide-eyebrow{
+  font-family:var(--ff-utility);
+  font-size:.68rem;
+  font-weight:600;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:var(--gold2);
+  margin-bottom:.9rem;
+  display:flex;align-items:center;gap:.6rem;
+}
+.slide-eyebrow::before{content:'';display:block;width:30px;height:1px;background:var(--gold);}
+.slide-content h1{
+  font-family:var(--ff-display);
+  font-size:2.9rem;
+  font-weight:600;
+  line-height:1.1;
+  margin-bottom:1rem;
+  letter-spacing:-.01em;
+}
+.slide-content p{
+  font-size:.92rem;
+  line-height:1.7;
+  opacity:.8;
+  max-width:440px;
+  margin-bottom:1.6rem;
+  font-weight:300;
+}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:var(--gold);
+  color:var(--ink);
+  padding:.7rem 1.8rem;
+  text-decoration:none;
+  font-family:var(--ff-utility);
+  font-size:.76rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  transition:background .2s,transform .2s;
+  border-radius:1px;
+}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-1px);}
+.btn-primary svg{width:14px;height:14px;transition:transform .2s;}
+.btn-primary:hover svg{transform:translateX(3px);}
+
+/* ─── SECTION SHARED ─── */
+.section-eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--ff-utility);
+  font-size:.66rem;
+  font-weight:600;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:.8rem;
+}
+.section-eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--gold);}
+.section-title{
+  font-family:var(--ff-display);
+  font-size:2.1rem;
+  font-weight:600;
+  color:var(--ink);
+  line-height:1.15;
+  letter-spacing:-.01em;
+}
+.section-body{
+  font-size:.9rem;
+  line-height:1.75;
+  color:var(--smoke);
+  font-weight:300;
+}
+
+/* ─── SERVICES STRIP ─── */
+.services-strip{
+  background:var(--mist);
+  padding:4rem 8%;
+  border-bottom:1px solid var(--ash2);
+}
+.services-strip .header{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:2.5rem;
+}
+.services-strip .header-left{}
+
+/* ─── VEHICLE SERVICE CARDS ─── */
+.cards-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.2rem;
+}
+.service-card{
+  background:var(--white);
+  border:1px solid var(--ash2);
+  position:relative;
+  overflow:hidden;
+  cursor:default;
+  transition:transform .3s ease,box-shadow .3s ease,border-color .3s;
+  display:flex;flex-direction:column;
+}
+.service-card:hover{transform:translateY(-5px);box-shadow:0 20px 48px rgba(13,15,14,.14);border-color:var(--forest);}
+
+/* vehicle visual area */
+.scard-visual{
+  position:relative;
+  height:170px;
+  overflow:hidden;
+  background:#0a1a0f;
+  flex-shrink:0;
+}
+.scard-visual .scard-bg{
+  position:absolute;inset:0;
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .7s ease,filter .4s ease;
+  filter:saturate(.85) brightness(.75);
+}
+.service-card:hover .scard-bg{transform:scale(1.06);filter:saturate(1) brightness(.85);}
+
+/* painted brand overlay on vehicle */
+.scard-brand-plate{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  background:linear-gradient(to top,rgba(13,15,14,.92) 60%,transparent);
+  padding:.7rem .9rem .45rem;
+  display:flex;align-items:flex-end;justify-content:space-between;
+  z-index:2;
+}
+.scard-brand-name{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:800;
+  font-size:.58rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#fff;
+  line-height:1;
+}
+.scard-brand-name em{
+  font-style:normal;
+  color:var(--gold2);
+}
+.scard-logo-mark{
+  width:24px;height:24px;flex-shrink:0;
+}
+/* livery stripe across visual */
+.scard-livery{
+  position:absolute;top:0;left:0;right:0;
+  height:4px;
+  background:linear-gradient(90deg,var(--forest) 0%,var(--gold) 55%,var(--forest) 100%);
+  z-index:3;
+}
+/* service type badge */
+.scard-badge{
+  position:absolute;top:.6rem;right:.6rem;
+  background:var(--gold);
+  color:var(--ink);
+  font-family:'Space Grotesk',sans-serif;
+  font-size:.58rem;font-weight:800;
+  letter-spacing:.16em;text-transform:uppercase;
+  padding:.28rem .6rem;
+  z-index:3;
+}
+
+/* text body area */
+.scard-body{
+  padding:1.2rem 1.2rem 1.4rem;
+  flex:1;
+  display:flex;flex-direction:column;
+  border-top:2px solid var(--gold);
+}
+.scard-body h3{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:.8rem;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--forest);
+  margin-bottom:.5rem;
+}
+.scard-body p{
+  font-size:.81rem;color:var(--smoke);line-height:1.6;font-weight:300;flex:1;
+}
+.scard-link{
+  margin-top:.9rem;
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:.7rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--forest);
+  text-decoration:none;
+  border-bottom:1px solid rgba(28,74,42,.25);
+  padding-bottom:.15rem;
+  width:fit-content;
+  transition:color .2s,border-color .2s;
+}
+.scard-link svg{width:11px;height:11px;transition:transform .2s;}
+.scard-link:hover{color:var(--gold);border-color:var(--gold);}
+.scard-link:hover svg{transform:translateX(3px);}
+
+/* keep legacy .s-icon used in about/other cards */
+.service-card .s-icon{
+  width:40px;height:40px;
+  background:var(--ash);
+  border-radius:1px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1.2rem;
+  transition:background .25s;
+}
+.service-card:hover .s-icon{background:var(--forest);color:var(--white);}
+.service-card .s-icon svg{width:18px;height:18px;stroke:var(--forest);transition:stroke .25s;}
+.service-card:hover .s-icon svg{stroke:var(--white);}
+.service-card h3{
+  font-family:var(--ff-utility);
+  font-size:.8rem;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--ink);
+  margin-bottom:.55rem;
+}
+.service-card p{font-size:.82rem;color:var(--smoke);line-height:1.6;font-weight:300;}
+
+/* ─── FULL-SPAN TRANSPORT SHOWCASE (services page) ─── */
+.transport-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.6rem;
+  margin-bottom:2.5rem;
+}
+.transport-card{
+  position:relative;overflow:hidden;
+  min-height:300px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  cursor:default;
+  transition:box-shadow .3s;
+}
+.transport-card:hover{box-shadow:0 20px 50px rgba(13,15,14,.2);}
+.transport-card img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:saturate(.9) brightness(.7);
+  transition:transform .8s ease,filter .4s ease;
+}
+.transport-card:hover img{transform:scale(1.04);filter:saturate(1.05) brightness(.75);}
+.transport-livery-top{
+  position:absolute;top:0;left:0;right:0;height:5px;
+  background:linear-gradient(90deg,var(--forest),var(--gold) 60%,var(--forest));
+  z-index:3;
+}
+.transport-content{
+  position:relative;z-index:2;
+  padding:1.6rem;
+  background:linear-gradient(to top,rgba(10,20,12,.95) 55%,rgba(10,20,12,.5) 80%,transparent);
+}
+.transport-brand-bar{
+  display:flex;align-items:center;gap:.7rem;
+  margin-bottom:.9rem;
+}
+.transport-brand-bar .t-logo{width:28px;height:28px;flex-shrink:0;}
+.transport-brand-label{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:800;font-size:.66rem;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:#fff;line-height:1;
+}
+.transport-brand-label em{font-style:normal;color:var(--gold2);}
+.transport-content h3{
+  font-family:'Cormorant Garant',Georgia,serif;
+  font-size:1.5rem;font-weight:700;
+  color:#fff;line-height:1.1;margin-bottom:.5rem;
+}
+.transport-content p{
+  font-size:.8rem;color:rgba(255,255,255,.65);
+  line-height:1.6;margin-bottom:1rem;max-width:380px;
+}
+.transport-tag{
+  display:inline-block;
+  border:1px solid rgba(201,168,76,.5);
+  color:var(--gold2);
+  font-family:'Space Grotesk',sans-serif;
+  font-size:.62rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  padding:.28rem .75rem;
+}
+/* road + intl take full 2 cols */
+.transport-card.full{grid-column:1/-1;min-height:240px;}
+.transport-card.full .transport-content{max-width:560px;}
+.transport-card.full .transport-content h3{font-size:1.9rem;}
+
+/* ─── ABOUT SPLIT ─── */
+.about-split{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:420px;
+}
+.about-img-side{
+  position:relative;overflow:hidden;
+}
+.about-img-side img{
+  width:100%;height:100%;object-fit:cover;
+  transform:scale(1.03);transition:transform 8s ease;
+}
+.about-img-side:hover img{transform:scale(1);}
+.about-img-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(28,74,42,.3),transparent);
+}
+.about-badge{
+  position:absolute;bottom:2rem;left:2rem;
+  background:var(--gold);color:var(--ink);
+  padding:1rem 1.3rem;
+  font-family:var(--ff-display);
+}
+.about-badge .num{font-size:1.9rem;font-weight:700;line-height:1;}
+.about-badge .lbl{font-size:.68rem;font-weight:500;letter-spacing:.08em;margin-top:.2rem;}
+.about-text-side{
+  background:var(--ink);
+  padding:4rem 6%;
+  display:flex;flex-direction:column;justify-content:center;
+  color:var(--white);
+}
+.about-text-side .section-eyebrow{color:var(--gold);}
+.about-text-side .section-title{color:var(--white);}
+.about-text-side .section-body{color:rgba(255,255,255,.6);margin:1.2rem 0 1.8rem;}
+.about-text-side .btn-outline{
+  display:inline-flex;align-items:center;gap:.5rem;
+  border:1px solid rgba(255,255,255,.2);
+  color:var(--white);
+  padding:.6rem 1.6rem;
+  text-decoration:none;
+  font-family:var(--ff-utility);
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  transition:border-color .2s,background .2s;
+  width:fit-content;
+}
+.about-text-side .btn-outline:hover{border-color:var(--gold);background:rgba(201,168,76,.08);}
+
+/* ─── STATS ─── */
+.stats-band{
+  background:var(--forest);
+  padding:2rem 8%;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background-color:rgba(255,255,255,.08);
+}
+.stats-band .stat-cell{
+  background:var(--forest);
+  padding:1.5rem 1.4rem;
+  border-right:1px solid rgba(255,255,255,.1);
+  display:flex;flex-direction:column;gap:.3rem;
+}
+.stats-band .stat-cell:last-child{border-right:none;}
+.stat-num{
+  font-family:var(--ff-display);
+  font-size:2rem;
+  font-weight:700;
+  color:var(--white);
+  line-height:1;
+  display:flex;align-items:flex-end;gap:.1rem;
+}
+.stat-suffix{font-size:1.15rem;color:var(--gold2);}
+.stat-lbl{
+  font-family:var(--ff-utility);
+  font-size:.66rem;
+  font-weight:500;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.45);
+}
+
+/* ─── WHY CHOOSE ─── */
+.why-section{
+  padding:4.5rem 8%;
+  background:var(--white);
+  display:grid;
+  grid-template-columns:1fr 1.1fr;
+  gap:4rem;
+  align-items:center;
+}
+.why-img{position:relative;}
+.why-img img{
+  width:100%;height:400px;object-fit:cover;
+  filter:grayscale(20%);
+}
+.why-img-line{
+  position:absolute;top:2rem;left:2rem;right:-1rem;bottom:-1rem;
+  border:1px solid var(--gold);
+  z-index:-1;
+  opacity:.35;
+}
+.why-items{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-top:1.8rem;}
+.why-item{
+  display:flex;align-items:flex-start;gap:.7rem;
+  padding:.7rem;
+  border:1px solid transparent;
+  transition:border-color .2s,background .2s;
+}
+.why-item:hover{border-color:var(--ash2);background:var(--mist);}
+.why-check{
+  width:17px;height:17px;flex-shrink:0;
+  background:var(--forest);
+  border-radius:1px;
+  display:flex;align-items:center;justify-content:center;
+  margin-top:1px;
+}
+.why-check svg{width:9px;height:9px;stroke:#fff;stroke-width:2.5;}
+.why-item-text{font-size:.81rem;color:var(--ink);font-weight:500;line-height:1.4;}
+
+/* ─── TRACKING ─── */
+.track-section{
+  background:var(--ink2);
+  padding:4rem 8%;
+}
+.track-inner{max-width:680px;margin:0 auto;text-align:center;}
+.track-inner .section-eyebrow{justify-content:center;}
+.track-inner .section-title{color:var(--white);}
+.track-inner .section-body{color:rgba(255,255,255,.5);margin:1rem 0 2.2rem;}
+.track-box{
+  display:flex;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.04);
+  border-radius:2px;
+  overflow:hidden;
+  transition:border-color .2s;
+}
+.track-box:focus-within{border-color:var(--gold);}
+.track-box input{
+  flex:1;
+  background:transparent;
+  border:none;outline:none;
+  padding:1rem 1.4rem;
+  font-family:var(--ff-utility);
+  font-size:.86rem;
+  color:var(--white);
+  letter-spacing:.04em;
+}
+.track-box input::placeholder{color:rgba(255,255,255,.3);}
+.track-box button{
+  background:var(--gold);
+  color:var(--ink);
+  border:none;
+  padding:1rem 1.8rem;
+  font-family:var(--ff-utility);
+  font-size:.76rem;
+  font-weight:700;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:background .2s;
+  flex-shrink:0;
+}
+.track-box button:hover{background:var(--gold2);}
+.track-result{
+  margin-top:1.8rem;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  padding:1.6rem;
+  display:none;
+  text-align:left;
+}
+.track-result.show{display:block;}
+.track-status{
+  font-family:var(--ff-utility);
+  font-size:.76rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--gold2);
+  margin-bottom:1.2rem;
+  padding-bottom:.9rem;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.track-steps{list-style:none;display:flex;flex-direction:column;gap:0;}
+.track-steps li{
+  display:flex;gap:1rem;align-items:flex-start;
+  padding:.85rem 0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  font-size:.81rem;
+  color:rgba(255,255,255,.65);
+}
+.track-steps li:last-child{border:none;}
+.step-indicator{
+  display:flex;flex-direction:column;align-items:center;flex-shrink:0;
+  margin-top:2px;
+}
+.step-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:rgba(255,255,255,.2);flex-shrink:0;
+}
+.step-dot.done{background:var(--gold);}
+.step-dot.current{background:#4ade80;box-shadow:0 0 0 3px rgba(74,222,128,.2);}
+.step-line{width:1px;height:100%;background:rgba(255,255,255,.07);flex:1;min-height:20px;}
+.step-info strong{display:block;color:rgba(255,255,255,.85);font-size:.81rem;margin-bottom:.2rem;}
+.step-loc{font-size:.75rem;color:rgba(255,255,255,.4);}
+
+/* ─── PROVIDE ─── */
+.provide-section{
+  padding:4rem 8%;
+  background:var(--ash);
+}
+.provide-header{text-align:center;margin-bottom:2.5rem;}
+.provide-header .section-eyebrow{justify-content:center;}
+.provide-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.3rem;
+}
+.provide-card{
+  background:var(--white);
+  padding:1.7rem 1.4rem;
+  border-left:2px solid var(--gold);
+  transition:transform .2s,box-shadow .2s;
+}
+.provide-card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(13,15,14,.07);}
+.provide-card h3{
+  font-family:var(--ff-utility);
+  font-size:.8rem;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--forest);
+  margin-bottom:.55rem;
+}
+.provide-card p{font-size:.82rem;color:var(--smoke);line-height:1.6;font-weight:300;}
+
+/* ─── PROGRESS / CAPABILITIES ─── */
+.progress-section{
+  padding:4.5rem 8%;
+  background:var(--white);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4rem;
+  align-items:center;
+}
+.progress-text .section-body{margin:1rem 0 1.8rem;}
+.bars{display:flex;flex-direction:column;gap:1.4rem;}
+.bar-item label{
+  display:flex;justify-content:space-between;
+  font-family:var(--ff-utility);
+  font-size:.71rem;
+  font-weight:600;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--smoke);
+  margin-bottom:.5rem;
+}
+.bar-item label .pct{color:var(--forest);font-weight:700;}
+.bar-track{
+  background:var(--ash2);
+  height:3px;
+  overflow:hidden;
+}
+.bar-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--forest),var(--gold));
+  transition:width 1.4s cubic-bezier(.22,1,.36,1);
+  width:0;
+}
+
+/* ─── TESTIMONIALS ─── */
+.testimonials{
+  background:var(--ink);
+  padding:4rem 8%;
+}
+.testimonials .testi-header{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-bottom:2.5rem;
+}
+.testimonials .section-title{color:var(--white);}
+.testimonials .section-eyebrow{color:var(--gold);}
+.testi-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.1rem;
+}
+.testi-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);
+  padding:1.6rem;
+  position:relative;
+  overflow:hidden;
+  transition:background .25s,border-color .25s;
+}
+.testi-card:hover{background:rgba(255,255,255,.07);border-color:rgba(201,168,76,.3);}
+.testi-card .t-quote{
+  font-family:var(--ff-display);
+  font-size:3.4rem;
+  line-height:.8;
+  color:var(--gold);
+  opacity:.3;
+  margin-bottom:.7rem;
+}
+.testi-card .t-body{
+  font-family:var(--ff-display);
+  font-size:.92rem;
+  font-style:italic;
+  color:rgba(255,255,255,.7);
+  line-height:1.7;
+  margin-bottom:1.2rem;
+}
+.testi-card .t-author{
+  font-family:var(--ff-utility);
+  font-size:.73rem;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--white);
+}
+.testi-card .t-role{
+  font-size:.71rem;
+  color:rgba(255,255,255,.35);
+  margin-top:.2rem;
+}
+.stars{color:var(--gold2);font-size:.73rem;letter-spacing:.1em;margin-bottom:.7rem;}
+
+/* ─── TIMELINE ─── */
+.timeline-section{
+  padding:4rem 8%;
+  background:var(--mist);
+}
+.timeline-header{text-align:center;margin-bottom:3rem;}
+.timeline-header .section-eyebrow{justify-content:center;}
+.timeline{
+  position:relative;
+  max-width:760px;
+  margin:0 auto;
+}
+.timeline::before{
+  content:'';position:absolute;left:50%;top:0;bottom:0;
+  width:1px;background:var(--ash2);transform:translateX(-50%);
+}
+.tl-item{
+  display:flex;justify-content:flex-end;
+  padding-right:calc(50% + 2.2rem);
+  margin-bottom:2.2rem;
+  position:relative;
+}
+.tl-item:nth-child(even){justify-content:flex-start;padding-right:0;padding-left:calc(50% + 2.2rem);}
+.tl-dot{
+  position:absolute;left:50%;top:1rem;
+  width:10px;height:10px;
+  background:var(--gold);
+  border-radius:50%;
+  transform:translateX(-50%);
+  border:2px solid var(--white);
+  box-shadow:0 0 0 3px var(--gold);
+}
+.tl-card{
+  background:var(--white);
+  border:1px solid var(--ash2);
+  padding:1.25rem 1.4rem;
+  max-width:280px;
+  border-top:2px solid var(--gold);
+}
+.tl-year{
+  font-family:var(--ff-utility);
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.18em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:.45rem;
+}
+.tl-card h3{
+  font-family:var(--ff-display);
+  font-size:1.02rem;
+  font-weight:600;
+  color:var(--ink);
+  margin-bottom:.45rem;
+}
+.tl-card p{font-size:.81rem;color:var(--smoke);line-height:1.6;font-weight:300;}
+
+/* ─── AVAIL BAND ─── */
+.avail-band{
+  background:var(--forest);
+  padding:3.2rem 8%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:2rem;
+}
+.avail-band .av-text .section-title{color:var(--white);font-size:1.7rem;}
+.avail-band .av-text .section-body{color:rgba(255,255,255,.6);margin-top:.5rem;}
+.btn-gold{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:var(--gold);
+  color:var(--ink);
+  padding:.75rem 1.8rem;
+  text-decoration:none;
+  font-family:var(--ff-utility);
+  font-size:.76rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  flex-shrink:0;
+  transition:background .2s;
+}
+.btn-gold:hover{background:var(--gold2);}
+
+/* ─── BLOG ─── */
+.blog-section{
+  padding:4rem 8%;
+  background:var(--white);
+}
+.blog-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.2rem;}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;}
+.blog-card{
+  display:flex;flex-direction:column;
+  border:1px solid var(--ash2);
+  overflow:hidden;
+  transition:transform .25s,box-shadow .25s;
+}
+.blog-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(13,15,14,.08);}
+.blog-card img{width:100%;height:170px;object-fit:cover;filter:saturate(.9);transition:filter .3s;}
+.blog-card:hover img{filter:saturate(1.1);}
+.blog-body{padding:1.4rem;flex:1;display:flex;flex-direction:column;}
+.blog-tag{
+  font-family:var(--ff-utility);
+  font-size:.63rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--forest);
+  margin-bottom:.7rem;
+  display:flex;align-items:center;gap:.4rem;
+}
+.blog-tag::before{content:'';width:16px;height:1px;background:var(--gold);}
+.blog-card h3{
+  font-family:var(--ff-display);
+  font-size:1rem;font-weight:600;
+  color:var(--ink);line-height:1.35;
+  margin-bottom:.55rem;flex:1;
+}
+.blog-card .blog-meta{
+  font-size:.76rem;color:var(--smoke);
+  font-family:var(--ff-utility);
+  display:flex;align-items:center;gap:.5rem;
+  margin-top:.9rem;padding-top:.7rem;
+  border-top:1px solid var(--ash2);
+}
+.blog-card .blog-meta a{
+  color:var(--gold);font-weight:600;text-decoration:none;
+  margin-left:auto;transition:color .2s;
+}
+.blog-card .blog-meta a:hover{color:var(--ink);}
+
+/* ─── CONTACT ─── */
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1.4fr;
+  min-height:440px;
+}
+.contact-dark{
+  background:var(--ink);
+  padding:4rem 5%;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.contact-dark .section-title{color:var(--white);}
+.contact-dark .section-eyebrow{color:var(--gold);}
+.contact-items{margin-top:2.2rem;display:flex;flex-direction:column;gap:1.6rem;}
+.contact-item{display:flex;gap:1rem;align-items:flex-start;}
+.contact-icon{
+  width:36px;height:36px;
+  border:1px solid rgba(255,255,255,.15);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.contact-icon svg{width:15px;height:15px;stroke:var(--gold);}
+.c-label{
+  font-family:var(--ff-utility);font-size:.63rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);margin-bottom:.3rem;
+}
+.c-value{font-size:.86rem;color:rgba(255,255,255,.75);}
+.contact-light{
+  background:var(--mist);
+  padding:4rem 5%;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.contact-light h2{
+  font-family:var(--ff-display);font-size:1.6rem;font-weight:600;
+  color:var(--ink);margin-bottom:1.8rem;
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+.form-field{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem;}
+.form-field label{
+  font-family:var(--ff-utility);font-size:.66rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--smoke);
+}
+.form-field input,.form-field textarea,.form-field select{
+  background:var(--white);
+  border:1px solid var(--ash2);
+  padding:.7rem .95rem;
+  font-family:var(--ff-body);font-size:.86rem;color:var(--ink);
+  outline:none;transition:border-color .2s;
+  border-radius:0;
+  -webkit-appearance:none;
+}
+.form-field input:focus,.form-field textarea:focus,.form-field select:focus{border-color:var(--forest);}
+.form-field textarea{height:95px;resize:vertical;}
+.btn-submit{
+  background:var(--forest);color:var(--white);border:none;
+  padding:.8rem 2.2rem;
+  font-family:var(--ff-utility);font-size:.76rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  cursor:pointer;transition:background .2s;
+}
+.btn-submit:hover{background:var(--ink);}
+
+/* ─── APPOINTMENT ─── */
+.appt-section{
+  padding:4rem 8%;
+  background:var(--mist);
+  min-height:65vh;
+  display:flex;flex-direction:column;align-items:center;
+}
+.appt-section h2{
+  font-family:var(--ff-display);font-size:2.3rem;font-weight:600;
+  color:var(--ink);text-align:center;margin-bottom:.5rem;
+}
+.appt-section .sub{text-align:center;color:var(--smoke);font-size:.9rem;margin-bottom:2.5rem;}
+.appt-form-card{
+  width:100%;max-width:600px;
+  background:var(--white);
+  border:1px solid var(--ash2);
+  padding:2.2rem;
+  border-top:3px solid var(--gold);
+}
+
+/* ─── SERVICES PAGE ─── */
+.services-full{padding:4rem 8%;background:var(--white);}
+.services-full .page-banner{
+  background:var(--ink);padding:3.2rem 8%;margin:-4rem -8% 3.2rem;
+  border-bottom:3px solid var(--gold);
+}
+.services-full .page-banner h1{
+  font-family:var(--ff-display);font-size:2.4rem;font-weight:600;
+  color:var(--white);
+}
+.services-full .page-banner p{color:rgba(255,255,255,.5);margin-top:.5rem;}
+
+/* ─── ABOUT PAGE ─── */
+.about-page{padding:4rem 8%;background:var(--white);}
+.about-page .page-banner{
+  background:linear-gradient(135deg,var(--forest),var(--ink));
+  padding:3.2rem 8%;margin:-4rem -8% 3.2rem;
+  border-bottom:3px solid var(--gold);
+}
+.about-page .page-banner h1{
+  font-family:var(--ff-display);font-size:2.4rem;font-weight:600;color:var(--white);
+}
+
+/* ─── TEAM ─── */
+.team-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;
+  margin-top:1.8rem;
+}
+.team-card{
+  border:1px solid var(--ash2);padding:1.8rem 1.4rem;
+  text-align:center;
+  transition:border-color .2s,box-shadow .2s;
+}
+.team-card:hover{border-color:var(--gold);box-shadow:0 8px 32px rgba(13,15,14,.06);}
+.team-avatar{
+  width:58px;height:58px;border-radius:50%;
+  background:var(--forest);
+  margin:0 auto .9rem;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--ff-display);font-size:1.25rem;font-weight:600;color:var(--white);
+}
+.team-card h3{font-family:var(--ff-utility);font-weight:700;font-size:.86rem;color:var(--ink);}
+.team-card .role{font-size:.76rem;color:var(--smoke);margin-top:.3rem;}
+
+/* ─── FAQ ─── */
+.faq-section{padding:4rem 8%;background:var(--ash);}
+.faq-section h2{
+  font-family:var(--ff-display);font-size:1.9rem;font-weight:600;
+  color:var(--ink);text-align:center;margin-bottom:2.2rem;
+}
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:.6rem;}
+.faq-item{border:1px solid var(--ash2);background:var(--white);}
+.faq-q{
+  padding:1rem 1.3rem;cursor:pointer;
+  font-family:var(--ff-utility);font-size:.81rem;font-weight:600;
+  letter-spacing:.03em;color:var(--ink);
+  display:flex;justify-content:space-between;align-items:center;
+  transition:background .2s;
+}
+.faq-q:hover{background:var(--mist);}
+.faq-arrow{
+  width:23px;height:23px;flex-shrink:0;
+  border:1px solid var(--ash2);display:flex;align-items:center;justify-content:center;
+  transition:transform .25s,background .2s;
+}
+.faq-arrow svg{width:10px;height:10px;stroke:var(--forest);transition:stroke .2s;}
+.faq-item.open .faq-arrow{transform:rotate(180deg);background:var(--forest);}
+.faq-item.open .faq-arrow svg{stroke:var(--white);}
+.faq-a{
+  padding:0 1.3rem;max-height:0;overflow:hidden;
+  transition:max-height .3s ease,padding .3s;
+  font-size:.83rem;color:var(--smoke);line-height:1.7;
+}
+.faq-item.open .faq-a{max-height:200px;padding:.2rem 1.3rem 1rem;}
+
+/* ─── FOOTER ─── */
+.footer{background:var(--ink);padding:3.5rem 8% 1.8rem;}
+.footer-grid{
+  display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;
+  gap:2.6rem;padding-bottom:2.6rem;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.footer-brand .brand-name{
+  font-family:var(--ff-utility);font-size:.82rem;font-weight:700;
+  letter-spacing:.16em;color:var(--white);text-transform:uppercase;
+}
+.footer-brand .brand-sub{
+  font-family:var(--ff-body);font-size:.6rem;letter-spacing:.22em;
+  color:var(--gold);text-transform:uppercase;margin-top:.2rem;
+}
+.footer-brand p{font-size:.81rem;color:rgba(255,255,255,.4);margin-top:.9rem;line-height:1.7;max-width:270px;}
+.footer h4{
+  font-family:var(--ff-utility);font-size:.68rem;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);margin-bottom:1.1rem;
+}
+.footer ul{list-style:none;display:flex;flex-direction:column;gap:.65rem;}
+.footer ul a{
+  color:rgba(255,255,255,.55);text-decoration:none;
+  font-size:.81rem;transition:color .2s;
+}
+.footer ul a:hover{color:var(--gold2);}
+.footer-wh{font-size:.81rem;color:rgba(255,255,255,.45);line-height:1.85;}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:1.3rem;
+  font-family:var(--ff-utility);font-size:.68rem;
+  letter-spacing:.08em;color:rgba(255,255,255,.25);
+}
+.footer-bottom a{color:rgba(255,255,255,.3);text-decoration:none;}
+
+/* ─── PAGES TOGGLE ─── */
+.page{display:none;}
+.page.active{display:block;}
+
+/* ─── MODALS ─── */
+.modal-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.7);z-index:2000;
+  align-items:center;justify-content:center;
+  backdrop-filter:blur(4px);
+}
+.modal-overlay.show{display:flex;}
+.modal-box{
+  background:var(--white);padding:2.2rem;max-width:400px;width:90%;
+  text-align:center;border-top:3px solid var(--gold);
+  animation:modal-in .3s ease;
+}
+@keyframes modal-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.modal-icon{margin-bottom:1rem;}
+.modal-icon svg{width:40px;height:40px;stroke:var(--forest);}
+.modal-box h3{font-family:var(--ff-display);font-size:1.3rem;font-weight:600;color:var(--ink);margin-bottom:.5rem;}
+.modal-box p{font-size:.86rem;color:var(--smoke);margin-bottom:1.4rem;line-height:1.6;}
+.modal-close{
+  background:var(--forest);color:var(--white);border:none;
+  padding:.6rem 1.8rem;
+  font-family:var(--ff-utility);font-size:.73rem;font-weight:700;
+  letter-spacing:.15em;text-transform:uppercase;cursor:pointer;
+  transition:background .2s;
+}
+.modal-close:hover{background:var(--ink);}
+
+/* ─── REVEAL ANIMATIONS ─── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-left{opacity:0;transform:translateX(-24px);transition:opacity .8s ease,transform .8s ease;}
+.reveal-left.visible{opacity:1;transform:translateX(0);}
+.reveal-right{opacity:0;transform:translateX(24px);transition:opacity .8s ease,transform .8s ease;}
+.reveal-right.visible{opacity:1;transform:translateX(0);}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:1100px){
+  .cards-grid,.provide-grid{grid-template-columns:repeat(2,1fr);}
+  .testi-grid{grid-template-columns:repeat(2,1fr);}
+  .stats-band{grid-template-columns:repeat(2,1fr);}
+  .stats-band .stat-cell:nth-child(2){border-right:none;}
+  .services-strip .header{flex-direction:column;align-items:flex-start;gap:1rem;}
+}
+@media(max-width:900px){
+  .navbar{padding:.7rem 1.5rem;}
+  .hero{height:380px;}
+  .slide-content h1{font-size:2.1rem;}
+  .about-split{grid-template-columns:1fr;}
+  .about-img-side{height:280px;}
+  .why-section,.progress-section{grid-template-columns:1fr;gap:2.5rem;}
+  .contact-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .timeline::before{left:16px;}
+  .tl-item,.tl-item:nth-child(even){justify-content:flex-start;padding-right:0;padding-left:3rem;}
+  .tl-dot{left:16px;}
+  .avail-band{flex-direction:column;text-align:center;}
+  .blog-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:640px){
+  html{font-size:14px;}
+  .navbar{flex-wrap:wrap;gap:.6rem;padding:.6rem 1rem;}
+  .nav-links{gap:1.1rem;flex-wrap:wrap;}
+  .hero{height:340px;padding:0 6% 2.5rem;}
+  .slide-content h1{font-size:1.7rem;}
+  .cards-grid,.provide-grid,.testi-grid,.team-grid{grid-template-columns:1fr;}
+  .stats-band{grid-template-columns:repeat(2,1fr);padding:1.4rem 6%;}
+  .stat-num{font-size:1.6rem;}
+  .footer-grid{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .blog-grid{grid-template-columns:1fr;}
+  .section-title{font-size:1.7rem;}
+  .ticker-bar{padding:.5rem 1rem;}
+  .ticker-scroll{display:none;}
+  .ticker-clock{gap:.8rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ TICKER BAR ══ -->
+<div class="ticker-bar">
+  <div class="ticker-clock">
+    <span class="time" id="live-time">—</span>
+    <div class="ticker-divider"></div>
+    <span class="date" id="live-date">—</span>
+  </div>
+  <div class="ticker-scroll">
+    <div class="ticker-track" id="ticker-track">
+      <!-- duplicated for seamless loop -->
+      <span class="ticker-item"><span class="ticker-dot"></span>Sydney Depot — Operational</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Dubai Transit Hub — Operational</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>London Heathrow Cargo — Operational</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Singapore Air Hub — Operational</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Lagos Port Office — Operational</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>New York JFK Freight — Operational</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>São Paulo Hub — Operational</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Sydney Depot — Operational</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Dubai Transit Hub — Operational</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>London Heathrow Cargo — Operational</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Singapore Air Hub — Operational</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Lagos Port Office — Operational</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>New York JFK Freight — Operational</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>São Paulo Hub — Operational</span>
+    </div>
+  </div>
+  <div class="ticker-email"><a href="mailto:info@247expressdelivery.com">info@247expressdelivery.com</a></div>
+</div>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="navbar" id="navbar">
+  <a class="logo-wrap" href="#" onclick="showPage('home');return false;">
+    <!-- PREMIUM LOGO: Geometric monogram with vector arrow -->
+    <svg class="logo-svg-wrap" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Dark base -->
+      <rect width="48" height="48" fill="#1C4A2A"/>
+      <!-- Gold accent block top-right -->
+      <rect x="28" y="0" width="20" height="4" fill="#C9A84C"/>
+      <!-- 24/7 numerals simplified as bars -->
+      <rect x="8" y="10" width="16" height="3" fill="#fff"/>
+      <rect x="8" y="16" width="12" height="3" fill="#fff"/>
+      <rect x="8" y="22" width="16" height="3" fill="#fff"/>
+      <rect x="8" y="10" width="3" height="15" fill="#fff"/>
+      <path d="M28 10 h10 a4 4 0 0 1 0 8 h-6 a4 4 0 0 0 0 8 h10" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="square"/>
+      <!-- velocity arrow bottom -->
+      <path d="M8 36 L32 36 L26 31" stroke="#C9A84C" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M32 36 L26 41" stroke="#C9A84C" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </svg>
+    
+    <div class="logo-text-block">
+      <span class="logo-brand"><h2>247-EXPRESS<span class="logo-accent">-DELIVERY</span></span>
+      <span class="logo-sub"> </span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('home');return false;">Home</a></li>
+    <li><a href="#" onclick="showPage('track');return false;">Track</a></li>
+    <li><a href="#" onclick="showPage('about');return false;">About</a></li>
+    <li><a href="#" onclick="showPage('services');return false;">Services</a></li>
+    <li><a href="#" onclick="showPage('contact');return false;">Contact</a></li>
+    <li><a href="#" onclick="showPage('appointment');return false;" class="nav-cta">Book Appointment</a></li>
+  </ul>
+</nav>
+
+
+<!-- ══════════════ HOME PAGE ══════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO (static) -->
+  <div class="hero">
+    <div class="slide-content">
+      <div class="slide-eyebrow">Global Logistics Leader</div>
+      <h1>Elevating the World of Logistics.</h1>
+      <p>The world's largest retailers and brands rely on 247Express Delivery Company to move fast, at scale, with absolute precision.</p>
+      <a href="#" class="btn-primary" onclick="showPage('track');return false;">
+        Track Shipment
+        <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- SERVICES STRIP -->
+  <div class="services-strip">
+    <div class="header">
+      <div class="header-left reveal">
+        <div class="section-eyebrow">What We Do</div>
+        <h2 class="section-title">Core Services</h2>
+      </div>
+    </div>
+    <div class="cards-grid">
+      <!-- AIR FREIGHT -->
+      <div class="service-card reveal">
+        <div class="scard-visual">
+          <div class="scard-livery"></div>
+          <img class="scard-bg"
+            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=85"
+            alt="247Express Air Freight — cargo aircraft in branded livery"/>
+          <div class="scard-brand-plate">
+            <div class="scard-brand-name">247<em>Express</em></div>
+            <svg class="scard-logo-mark" viewBox="0 0 28 28" fill="none">
+              <rect width="28" height="28" fill="#1C4A2A"/>
+              <rect x="5" y="7" width="9" height="2" fill="#fff"/>
+              <rect x="5" y="10" width="7" height="2" fill="#fff"/>
+              <rect x="5" y="13" width="9" height="2" fill="#fff"/>
+              <rect x="5" y="7" width="2" height="8" fill="#fff"/>
+              <path d="M16 7h6a2 2 0 0 1 0 4h-4a2 2 0 0 0 0 4h6" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="square"/>
+              <path d="M5 20L18 20L14 17" stroke="#C9A84C" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18 20 L14 23" stroke="#C9A84C" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="scard-badge">Air</div>
+        </div>
+        <div class="scard-body">
+          <h3>Air Freight</h3>
+          <p>Fast, secure global delivery via a network of premier airlines. All cargo sizes — urgent or standard.</p>
+          <a href="#" class="scard-link" onclick="showPage('services');return false;">
+            Learn More <svg viewBox="0 0 11 11" fill="none"><path d="M1 5.5h9M6 1l4 4.5L6 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- ROAD FREIGHT -->
+      <div class="service-card reveal">
+        <div class="scard-visual">
+          <div class="scard-livery"></div>
+          <img class="scard-bg"
+            src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&q=85"
+            alt="247Express Road Freight — branded heavy truck"/>
+          <div class="scard-brand-plate">
+            <div class="scard-brand-name">247<em>Express</em></div>
+            <svg class="scard-logo-mark" viewBox="0 0 28 28" fill="none">
+              <rect width="28" height="28" fill="#1C4A2A"/>
+              <rect x="5" y="7" width="9" height="2" fill="#fff"/>
+              <rect x="5" y="10" width="7" height="2" fill="#fff"/>
+              <rect x="5" y="13" width="9" height="2" fill="#fff"/>
+              <rect x="5" y="7" width="2" height="8" fill="#fff"/>
+              <path d="M16 7h6a2 2 0 0 1 0 4h-4a2 2 0 0 0 0 4h6" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="square"/>
+              <path d="M5 20L18 20L14 17" stroke="#C9A84C" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18 20 L14 23" stroke="#C9A84C" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="scard-badge">Road</div>
+        </div>
+        <div class="scard-body">
+          <h3>Road Freight</h3>
+          <p>Safe, efficient overland transport with a branded fleet, flexible scheduling, and live tracking.</p>
+          <a href="#" class="scard-link" onclick="showPage('services');return false;">
+            Learn More <svg viewBox="0 0 11 11" fill="none"><path d="M1 5.5h9M6 1l4 4.5L6 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- OCEAN FREIGHT -->
+      <div class="service-card reveal">
+        <div class="scard-visual">
+          <div class="scard-livery"></div>
+          <img class="scard-bg"
+            src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=800&q=85"
+            alt="247Express Ocean Freight — branded container vessel"/>
+          <div class="scard-brand-plate">
+            <div class="scard-brand-name">247<em>Express</em></div>
+            <svg class="scard-logo-mark" viewBox="0 0 28 28" fill="none">
+              <rect width="28" height="28" fill="#1C4A2A"/>
+              <rect x="5" y="7" width="9" height="2" fill="#fff"/>
+              <rect x="5" y="10" width="7" height="2" fill="#fff"/>
+              <rect x="5" y="13" width="9" height="2" fill="#fff"/>
+              <rect x="5" y="7" width="2" height="8" fill="#fff"/>
+              <path d="M16 7h6a2 2 0 0 1 0 4h-4a2 2 0 0 0 0 4h6" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="square"/>
+              <path d="M5 20L18 20L14 17" stroke="#C9A84C" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18 20 L14 23" stroke="#C9A84C" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="scard-badge">Sea</div>
+        </div>
+        <div class="scard-body">
+          <h3>Ocean Freight</h3>
+          <p>Cost-effective, eco-responsible sea shipping leveraging tier-one carrier partnerships worldwide.</p>
+          <a href="#" class="scard-link" onclick="showPage('services');return false;">
+            Learn More <svg viewBox="0 0 11 11" fill="none"><path d="M1 5.5h9M6 1l4 4.5L6 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- INTERNATIONAL FREIGHT -->
+      <div class="service-card reveal">
+        <div class="scard-visual">
+          <div class="scard-livery"></div>
+          <img class="scard-bg"
+            src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=85"
+            alt="247Express International Freight"/>
+          <div class="scard-brand-plate">
+            <div class="scard-brand-name">247<em>Express</em></div>
+            <svg class="scard-logo-mark" viewBox="0 0 28 28" fill="none">
+              <rect width="28" height="28" fill="#1C4A2A"/>
+              <rect x="5" y="7" width="9" height="2" fill="#fff"/>
+              <rect x="5" y="10" width="7" height="2" fill="#fff"/>
+              <rect x="5" y="13" width="9" height="2" fill="#fff"/>
+              <rect x="5" y="7" width="2" height="8" fill="#fff"/>
+              <path d="M16 7h6a2 2 0 0 1 0 4h-4a2 2 0 0 0 0 4h6" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="square"/>
+              <path d="M5 20L18 20L14 17" stroke="#C9A84C" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18 20 L14 23" stroke="#C9A84C" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="scard-badge">Global</div>
+        </div>
+        <div class="scard-body">
+          <h3>International Freight</h3>
+          <p>Navigating customs and global regulations — delivering anywhere with speed, security, and clarity.</p>
+          <a href="#" class="scard-link" onclick="showPage('services');return false;">
+            Learn More <svg viewBox="0 0 11 11" fill="none"><path d="M1 5.5h9M6 1l4 4.5L6 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT SPLIT -->
+  <div class="about-split">
+    <div class="about-img-side reveal-left">
+      <img src="https://images.unsplash.com/photo-1601598851547-4302969d0614?w=900&q=85" alt="Warehouse Operations"/>
+      <div class="about-img-overlay"></div>
+      <div class="about-badge">
+        <div class="num">29+</div>
+        <div class="lbl">Years of Excellence</div>
+      </div>
+    </div>
+    <div class="about-text-side reveal-right">
+      <div class="section-eyebrow">Our Story</div>
+      <h2 class="section-title">Built on Trust.<br><em>Driven by Precision.</em></h2>
+      <p class="section-body">Founded in 1995 in South Australia, 247Express Delivery Company began as a vision to redefine what logistics could be. Today, 47 offices across 5 continents stand as proof. We are not just a carrier — we are architects of seamless supply chains, moving what matters for businesses of every scale.</p>
+      <a href="#" class="btn-outline" onclick="showPage('about');return false;">
+        Our Full Story
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- STATS BAND -->
+  <div class="stats-band">
+    <div class="stat-cell">
+      <div class="stat-num"><span class="counter" data-target="50000">0</span><span class="stat-suffix">+</span></div>
+      <div class="stat-lbl">Packages Shipped</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num"><span class="counter" data-target="12000">0</span></div>
+      <div class="stat-lbl">Goods Insured</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num"><span class="counter" data-target="47">0</span></div>
+      <div class="stat-lbl">Global Offices</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num"><span class="counter" data-target="3200">0</span><span class="stat-suffix">+</span></div>
+      <div class="stat-lbl">Professionals</div>
+    </div>
+  </div>
+
+  <!-- WHY CHOOSE -->
+  <div class="why-section">
+    <div class="why-img reveal-left">
+      <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=85" alt="Logistics Operations"/>
+      <div class="why-img-line"></div>
+    </div>
+    <div class="reveal-right">
+      <div class="section-eyebrow">Our Advantage</div>
+      <h2 class="section-title">Why the World Chooses 247Express</h2>
+      <p class="section-body" style="margin-top:.8rem;">A logistics network engineered to adapt, scale, and outperform — no matter the complexity.</p>
+      <div class="why-items">
+        <div class="why-item"><div class="why-check"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 3 4.5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><span class="why-item-text">Cost-effective Solutions</span></div>
+        <div class="why-item"><div class="why-check"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 3 4.5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><span class="why-item-text">High Cargo Capacity</span></div>
+        <div class="why-item"><div class="why-check"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 3 4.5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><span class="why-item-text">Suitable for Heavy Goods</span></div>
+        <div class="why-item"><div class="why-check"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 3 4.5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><span class="why-item-text">Long-term Contracts</span></div>
+        <div class="why-item"><div class="why-check"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 3 4.5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><span class="why-item-text">Trade Routes Optimisation</span></div>
+        <div class="why-item"><div class="why-check"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 3 4.5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><span class="why-item-text">Reliable Schedules</span></div>
+        <div class="why-item"><div class="why-check"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 3 4.5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><span class="why-item-text">Access to Remote Areas</span></div>
+        <div class="why-item"><div class="why-check"><svg viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 3 4.5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><span class="why-item-text">Environmental Responsibility</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT WE PROVIDE -->
+  <div class="provide-section">
+    <div class="provide-header">
+      <div class="section-eyebrow">Capabilities</div>
+      <h2 class="section-title">What We Provide</h2>
+    </div>
+    <div class="provide-grid">
+      <div class="provide-card reveal">
+        <h3>Freight Forwarding</h3>
+        <p>Efficient, reliable forwarding for domestic and international shipments through our extensive carrier network.</p>
+      </div>
+      <div class="provide-card reveal">
+        <h3>Warehousing</h3>
+        <p>Secure, cost-effective storage with advanced surveillance and inventory management systems.</p>
+      </div>
+      <div class="provide-card reveal">
+        <h3>Customs Clearance</h3>
+        <p>Full regulatory compliance — our experienced brokers ensure every shipment clears without delay.</p>
+      </div>
+      <div class="provide-card reveal">
+        <h3>Specialised Services</h3>
+        <p>Bespoke logistics for unique cargo — hazardous materials, time-critical, and high-value consignments.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRESS / CAPABILITIES -->
+  <div class="progress-section">
+    <div class="progress-text reveal-left">
+      <div class="section-eyebrow">Performance</div>
+      <h2 class="section-title">Our Track Record Speaks.</h2>
+      <p class="section-body">Better respond to disruptions and shifts in the global marketplace. 247Express Delivery Company is the infrastructure your supply chain depends on.</p>
+      <a href="mailto:info@247expressdelivery.com" style="color:var(--gold);font-size:.83rem;font-family:var(--ff-utility);letter-spacing:.06em;">info@247expressdelivery.com</a>
+    </div>
+    <div class="bars reveal-right">
+      <div class="bar-item">
+        <label><span>Orders Received</span><span class="pct">89%</span></label>
+        <div class="bar-track"><div class="bar-fill" data-width="89"></div></div>
+      </div>
+      <div class="bar-item">
+        <label><span>Custom Clearance</span><span class="pct">89%</span></label>
+        <div class="bar-track"><div class="bar-fill" data-width="89"></div></div>
+      </div>
+      <div class="bar-item">
+        <label><span>Customer Satisfaction</span><span class="pct">97%</span></label>
+        <div class="bar-track"><div class="bar-fill" data-width="97"></div></div>
+      </div>
+      <div class="bar-item">
+        <label><span>On-Time Delivery</span><span class="pct">94%</span></label>
+        <div class="bar-track"><div class="bar-fill" data-width="94"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div class="testimonials">
+    <div class="testi-header">
+      <div>
+        <div class="section-eyebrow">Client Voices</div>
+        <h2 class="section-title">Stories of Trust</h2>
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="stars">★★★★★</div>
+        <div class="t-quote">"</div>
+        <p class="t-body">247Express's support team was incredibly helpful from the very first inquiry. Our goods arrived ahead of schedule.</p>
+        <div class="t-author">John Paul</div>
+        <div class="t-role">CEO, McLain Group</div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="stars">★★★★★</div>
+        <div class="t-quote">"</div>
+        <p class="t-body">Always reliable, timely, and cost-effective. I recommend 247Express to every business owner I know.</p>
+        <div class="t-author">Mark Jones</div>
+        <div class="t-role">Senior Marketer</div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="stars">★★★★★</div>
+        <div class="t-quote">"</div>
+        <p class="t-body">Top-notch customer service and highly competitive rates. Never had a single issue in three years of partnership.</p>
+        <div class="t-author">Mark Williams</div>
+        <div class="t-role">Director, MedSupply</div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="stars">★★★★★</div>
+        <div class="t-quote">"</div>
+        <p class="t-body">Professional, efficient, and guided me through international customs flawlessly. Exceptional service.</p>
+        <div class="t-author">Steven Adeyemi</div>
+        <div class="t-role">Operations Manager, COPA</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AVAILABILITY BAND -->
+  <div class="avail-band">
+    <div class="av-text">
+      <h2 class="section-title">24 / 7 Global Availability</h2>
+      <p class="section-body">Supply chain management, warehousing, distribution, and transportation — all hours, all time zones.</p>
+    </div>
+    <a href="#" class="btn-gold" onclick="showPage('contact');return false;">Contact Us Now</a>
+  </div>
+
+  <!-- BLOG -->
+  <div class="blog-section">
+    <div class="blog-header reveal">
+      <div>
+        <div class="section-eyebrow">Insights</div>
+        <h2 class="section-title">Latest from 247Express</h2>
+      </div>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=700&q=80" alt="Air Freight"/>
+        <div class="blog-body">
+          <div class="blog-tag">Air Freight</div>
+          <h3>Air Shipping — Fast, Reliable, and Global with 247Express</h3>
+          <div class="blog-meta">
+            <span>Jun 2025</span>
+            <a href="#">Read More →</a>
+          </div>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=700&q=80" alt="Customs"/>
+        <div class="blog-body">
+          <div class="blog-tag">Customs Clearance</div>
+          <h3>How 247Express Simplifies International Customs</h3>
+          <div class="blog-meta">
+            <span>May 2025</span>
+            <a href="#">Read More →</a>
+          </div>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?w=700&q=80" alt="Insurance"/>
+        <div class="blog-body">
+          <div class="blog-tag">Cargo Insurance</div>
+          <h3>Protect What You Ship — Our Comprehensive Insurance Services</h3>
+          <div class="blog-meta">
+            <span>Apr 2025</span>
+            <a href="#">Read More →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /home -->
+
+
+<!-- ══════════════ TRACK PAGE ══════════════ -->
+<div id="page-track" class="page">
+  <div class="track-section" style="min-height:65vh;display:flex;flex-direction:column;justify-content:center;">
+    <div class="track-inner">
+      <div class="section-eyebrow">Real-Time Visibility</div>
+      <h2 class="section-title">Track Your Shipment</h2>
+      <p class="section-body">Enter your tracking reference to get live status updates on your consignment.</p>
+      <div class="track-box">
+        <input type="text" id="track-input" placeholder="e.g. 247E-2024-78432"/>
+        <button onclick="doTrack()">Track</button>
+      </div>
+      <div class="track-result" id="track-result">
+        <div class="track-status" id="track-status"></div>
+        <ul class="track-steps" id="track-steps"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════ ABOUT PAGE ══════════════ -->
+<div id="page-about" class="page">
+  <div class="about-page">
+    <div class="page-banner">
+      <h1>About 247Express Delivery Company</h1>
+      <p style="color:rgba(255,255,255,.5);margin-top:.5rem;font-size:.9rem;">Trusted logistics partner since 1995.</p>
+    </div>
+
+    <div class="about-split" style="margin:0 -8% 4rem;">
+      <div class="about-img-side" style="min-height:380px;">
+        <img src="https://images.unsplash.com/photo-1601598851547-4302969d0614?w=900&q=85" alt="Warehouse"/>
+        <div class="about-img-overlay"></div>
+        <div class="about-badge"><div class="num">47</div><div class="lbl">Global Offices</div></div>
+      </div>
+      <div class="about-text-side">
+        <div class="section-eyebrow">Our Story</div>
+        <h2 class="section-title">About 247Express Delivery Company</h2>
+        <p class="section-body">We are committed to delivering exceptional shipping services that are reliable, safe, and cost-effective. With over 29 years in the logistics industry, we have become a trusted name across five continents.</p>
+        <p class="section-body" style="margin-top:1rem;">Founded in 1995 in South Australia, we have since expanded to 47 head offices worldwide — South America, Europe, Asia, and Africa — providing end-to-end logistics solutions backed by a global network of partners.</p>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline-section" style="padding:3.5rem 0;background:transparent;">
+      <div class="timeline-header">
+        <div class="section-eyebrow">Our Journey</div>
+        <h2 class="section-title">Company Milestones</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-year">March 1995 — South Australia</div>
+            <h3>Founded</h3>
+            <p>A vision to redefine logistics. 247Express Delivery Company was born with a commitment to precision and reliability that endures to this day.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-year">May 2002 — Sydney</div>
+            <h3>Mission Defined</h3>
+            <p>Established as the driving force behind global commerce — providing innovative, tailored logistics solutions that empower businesses to thrive.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-year">September 2012 — Tasmania</div>
+            <h3>Continental Expansion</h3>
+            <p>Opened 30th international office, marking our presence across all five continents with a unified commitment to excellence.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team -->
+    <div style="margin-top:1rem;">
+      <div class="section-eyebrow">Our People</div>
+      <h2 class="section-title" style="margin-bottom:1.8rem;">Meet Our Leadership</h2>
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <div class="team-avatar">AS</div>
+          <h3>Alexi Stokes</h3>
+          <div class="role">Warehouse Manager</div>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar">AL</div>
+          <h3>Alissa Leonard</h3>
+          <div class="role">Executive Secretary</div>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar">GM</div>
+          <h3>Georgia Mcneil</h3>
+          <div class="role">Operations Lead</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="testimonials" style="margin:3.5rem -8% 0;padding:3.5rem 8%;">
+      <div class="testi-header">
+        <div>
+          <div class="section-eyebrow">Client Voices</div>
+          <h2 class="section-title">Stories From Our Clients</h2>
+        </div>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card"><div class="stars">★★★★★</div><div class="t-quote">"</div><p class="t-body">247Express's support team was incredibly helpful from the very first inquiry.</p><div class="t-author">John Paul</div><div class="t-role">CEO, McLain Group</div></div>
+        <div class="testi-card"><div class="stars">★★★★★</div><div class="t-quote">"</div><p class="t-body">Always reliable, timely, and cost-effective. Highly recommended to all.</p><div class="t-author">Mark Jones</div><div class="t-role">Senior Marketer</div></div>
+        <div class="testi-card"><div class="stars">★★★★★</div><div class="t-quote">"</div><p class="t-body">Top-notch service and very competitive rates. Never had a single issue.</p><div class="t-author">Mark Williams</div><div class="t-role">Director, MedSupply</div></div>
+        <div class="testi-card"><div class="stars">★★★★★</div><div class="t-quote">"</div><p class="t-body">Professional, efficient, and helped me navigate customs on my overseas move.</p><div class="t-author">Steven Adeyemi</div><div class="t-role">Manager, COPA</div></div>
+      </div>
+    </div>
+  </div>
+</div><!-- /about -->
+
+
+<!-- ══════════════ SERVICES PAGE ══════════════ -->
+<div id="page-services" class="page">
+  <div class="services-full">
+    <div class="page-banner">
+      <h1>Our Services</h1>
+      <p>Comprehensive logistics solutions, built for scale.</p>
+    </div>
+    <div class="cards-grid" style="margin-bottom:3.5rem;">
+      <div class="service-card reveal"><div class="s-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Air Freight</h3><p>Fast, secure global delivery via top airlines. All cargo sizes, urgent and regular needs.</p></div>
+      <div class="service-card reveal"><div class="s-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="1" y="10" width="15" height="8" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M16 13h3l3 3v3h-6v-6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="5.5" cy="18.5" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="18.5" cy="18.5" r="2" stroke="currentColor" stroke-width="1.5"/></svg></div><h3>Road Freight</h3><p>Safe, efficient road transport with a modern fleet, flexible scheduling, and real-time tracking.</p></div>
+      <div class="service-card reveal"><div class="s-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 15C3 12 5 6 12 6s9 6 9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M3 15h18M7 20l1-5M17 20l-1-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3>Ocean Freight</h3><p>Cost-effective, eco-friendly ocean shipping with major carrier partnerships worldwide.</p></div>
+      <div class="service-card reveal"><div class="s-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 22V12h6v10" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div><h3>Warehousing</h3><p>Secure, cost-effective warehousing with advanced security to protect your inventory.</p></div>
+      <div class="service-card reveal"><div class="s-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Customs Clearance</h3><p>Expert clearance ensuring full compliance with all international regulations.</p></div>
+      <div class="service-card reveal"><div class="s-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Cargo Insurance</h3><p>Comprehensive cover for loss, damage, and theft — total peace of mind on every shipment.</p></div>
+    </div>
+    <div class="avail-band" style="margin:0 -8%;">
+      <div class="av-text">
+        <h2 class="section-title" style="color:#fff;font-size:1.7rem;">24/7 Availability</h2>
+        <p class="section-body" style="color:rgba(255,255,255,.6);">Available for all your logistics needs — engineering, distribution, transportation.</p>
+      </div>
+      <a href="#" class="btn-gold" onclick="showPage('contact');return false;">Contact Us</a>
+    </div>
+  </div>
+</div><!-- /services -->
+
+
+<!-- ══════════════ APPOINTMENT PAGE ══════════════ -->
+<div id="page-appointment" class="page">
+  <div class="appt-section">
+    <div class="section-eyebrow" style="justify-content:center;">Schedule</div>
+    <h2>Book an Appointment</h2>
+    <p class="sub">Our team will confirm within 24 hours.</p>
+    <div class="appt-form-card">
+      <div class="form-row">
+        <div class="form-field"><label>Full Name</label><input type="text" placeholder="Your full name"/></div>
+        <div class="form-field"><label>Email Address</label><input type="email" placeholder="your@email.com"/></div>
+      </div>
+      <div class="form-row">
+        <div class="form-field"><label>Phone Number</label><input type="tel" placeholder="+1 000 000 0000"/></div>
+        <div class="form-field"><label>Preferred Date</label><input type="date"/></div>
+      </div>
+      <div class="form-field">
+        <label>Service Required</label>
+        <select>
+          <option value="">Select a service</option>
+          <option>Air Freight</option>
+          <option>Road Freight</option>
+          <option>Ocean Freight</option>
+          <option>International Freight</option>
+          <option>Warehousing</option>
+          <option>Customs Clearance</option>
+          <option>Cargo Insurance</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>Notes</label>
+        <textarea placeholder="Additional requirements or special instructions…"></textarea>
+      </div>
+      <button class="btn-submit" onclick="showModal('appt-modal')">Confirm Appointment</button>
+    </div>
+  </div>
+</div><!-- /appointment -->
+
+
+<!-- ══════════════ CONTACT PAGE ══════════════ -->
+<div id="page-contact" class="page">
+  <div class="contact-grid">
+    <div class="contact-dark">
+      <div class="section-eyebrow">Get in Touch</div>
+      <h2 class="section-title" style="color:#fff;">Let's Talk Logistics.</h2>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.5"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <div>
+            <div class="c-label">Email</div>
+            <div class="c-value">info@247expressdelivery.com</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="c-label">Working Hours</div>
+            <div class="c-value">Mon–Fri: 8 AM – 8 PM<br>Sat–Sun: 8 AM – 5 PM</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <div>
+            <div class="c-label">Headquarters</div>
+            <div class="c-value">Tasmania, South Australia</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-light">
+      <h2>Send Us a Message</h2>
+      <div class="form-row">
+        <div class="form-field"><label>Your Name</label><input type="text" placeholder="Full name"/></div>
+        <div class="form-field"><label>Email Address</label><input type="email" placeholder="your@email.com"/></div>
+      </div>
+      <div class="form-field"><label>Message</label><textarea placeholder="How can we help?" style="height:120px;"></textarea></div>
+      <button class="btn-submit" onclick="showModal('contact-modal')">Send Message</button>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What type of cargo can 247Express handle?<div class="faq-arrow"><svg viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5 8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
+        <div class="faq-a">We handle a wide range of cargo including documents, parcels, and pallets. We also specialise in the transportation of dangerous or hazardous goods with full regulatory compliance.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Does 247Express provide insurance for my shipment?<div class="faq-arrow"><svg viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5 8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
+        <div class="faq-a">Yes, we offer comprehensive cargo insurance. Coverage terms apply — please consult our customer service team for a tailored policy to suit your shipment.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What is the cost of shipping with 247Express?<div class="faq-arrow"><svg viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5 8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
+        <div class="faq-a">Cost depends on weight, destination, mode of transportation, and shipment type. We offer competitive rates and provide customised quotes — contact us for an assessment.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Does 247Express provide real-time tracking?<div class="faq-arrow"><svg viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5 8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
+        <div class="faq-a">Yes — all shipments include real-time tracking. You can track via our website or by contacting our customer service team at any time.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Can I change or cancel my shipment?<div class="faq-arrow"><svg viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5 8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
+        <div class="faq-a">Yes, changes or cancellations may be made. Applicable charges depend on the stage of shipment and the service selected. Contact us as early as possible.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What if my shipment is lost or damaged?<div class="faq-arrow"><svg viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5 8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
+        <div class="faq-a">We take every precaution to ensure safe delivery. In the unlikely event of loss or damage, our comprehensive claims process ensures fair and timely compensation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Does 247Express handle customs clearance?<div class="faq-arrow"><svg viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5 8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
+        <div class="faq-a">Yes — our expert team ensures full customs compliance for every international shipment, making the clearance process smooth and hassle-free.</div>
+      </div>
+    </div>
+  </div>
+</div><!-- /contact -->
+
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" onclick="showPage('home');return false;" style="text-decoration:none;">
+        <div class="brand-name">247Express</div>
+        <div class="brand-sub">Delivery Company</div>
+      </a>
+      <p>Your seamless shipping solution. Trusted global logistics partner since 1995, operating across 47 offices worldwide.</p>
+    </div>
+    <div>
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('home');return false;">Home</a></li>
+        <li><a href="#" onclick="showPage('services');return false;">Services</a></li>
+        <li><a href="#" onclick="showPage('track');return false;">Track Shipment</a></li>
+        <li><a href="#" onclick="showPage('appointment');return false;">Book Appointment</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('about');return false;">About Us</a></li>
+        <li><a href="#" onclick="showPage('contact');return false;">Contact</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Operating Hours</h4>
+      <p class="footer-wh">Mon – Fri: 8:00 AM – 8:00 PM<br>Sat – Sun: 8:00 AM – 5:00 PM<br><br>All major time zones served.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 247Express Delivery Company. All Rights Reserved.</span>
+    <span><a href="#">Privacy</a> &nbsp;·&nbsp; <a href="#">Terms</a></span>
+  </div>
+</footer>
+
+
+<!-- MODALS -->
+<div class="modal-overlay" id="appt-modal">
+  <div class="modal-box">
+    <div class="modal-icon">
+      <svg viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="20" stroke="#1C4A2A" stroke-width="2"/><path d="M13 22l6 6 12-12" stroke="#1C4A2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h3>Appointment Confirmed</h3>
+    <p>Your appointment has been submitted. Our team will contact you within 24 hours to confirm the details.</p>
+    <button class="modal-close" onclick="closeModal('appt-modal')">Close</button>
+  </div>
+</div>
+<div class="modal-overlay" id="contact-modal">
+  <div class="modal-box">
+    <div class="modal-icon">
+      <svg viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="20" stroke="#1C4A2A" stroke-width="2"/><path d="M14 18h16M14 24h10" stroke="#1C4A2A" stroke-width="2" stroke-linecap="round"/></svg>
+    </div>
+    <h3>Message Sent</h3>
+    <p>Thank you for reaching out. A member of our team will respond to your enquiry shortly.</p>
+    <button class="modal-close" onclick="closeModal('contact-modal')">Close</button>
+  </div>
+</div>
+
+
+<script>
+/* ── LIVE CLOCK ── */
+function updateClock(){
+  const now=new Date();
+  const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const hh=String(now.getHours()).padStart(2,'0');
+  const mm=String(now.getMinutes()).padStart(2,'0');
+  const ss=String(now.getSeconds()).padStart(2,'0');
+  document.getElementById('live-time').textContent=`${hh}:${mm}:${ss}`;
+  document.getElementById('live-date').textContent=`${days[now.getDay()]}, ${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
+}
+updateClock();setInterval(updateClock,1000);
+
+/* ── NAVBAR SCROLL ── */
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>40);
+});
+
+/* ── PAGE NAVIGATION ── */
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(id==='home')animateBars();
+  setTimeout(()=>{observeReveal();},100);
+}
+
+/* ── SCROLL REVEAL ── */
+function observeReveal(){
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>{
+    el.classList.remove('visible');
+    observer.observe(el);
+  });
+}
+observeReveal();
+
+/* ── STAT COUNTERS ── */
+function animateCounters(){
+  document.querySelectorAll('.counter').forEach(el=>{
+    const target=+el.dataset.target;
+    const duration=1800;
+    const start=performance.now();
+    function step(ts){
+      const progress=Math.min((ts-start)/duration,1);
+      const ease=1-Math.pow(1-progress,3);
+      const val=Math.round(ease*target);
+      el.textContent=val>=1000?val.toLocaleString():val;
+      if(progress<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  });
+}
+const statsObserver=new IntersectionObserver((entries)=>{
+  if(entries[0].isIntersecting){animateCounters();statsObserver.disconnect();}
+},{threshold:0.3});
+const statsEl=document.querySelector('.stats-band');
+if(statsEl)statsObserver.observe(statsEl);
+
+/* ── PROGRESS BARS ── */
+function animateBars(){
+  document.querySelectorAll('.bar-fill').forEach(b=>{
+    b.style.width='0';
+    setTimeout(()=>{b.style.width=b.dataset.width+'%';},300);
+  });
+}
+const barsObserver=new IntersectionObserver((entries)=>{
+  if(entries[0].isIntersecting){animateBars();barsObserver.disconnect();}
+},{threshold:0.3});
+const barsEl=document.querySelector('.progress-section');
+if(barsEl)barsObserver.observe(barsEl);
+
+/* ── TRACKING ── */
+const fakeData={
+  status:'In Transit — On Schedule',
+  steps:[
+    {label:'Package Picked Up',loc:'Sydney Depot',time:'Jun 20, 09:14 AM',done:true},
+    {label:'Departed Origin Facility',loc:'Sydney International Hub',time:'Jun 20, 03:40 PM',done:true},
+    {label:'Cleared Customs',loc:'Dubai Transit Hub',time:'Jun 22, 11:05 AM',done:true},
+    {label:'Arrived Destination Country',loc:'London Heathrow Cargo',time:'Jun 23, 06:30 AM',done:true},
+    {label:'Out for Delivery',loc:'London Local Depot',time:'Jun 24, 08:00 AM',current:true},
+    {label:'Delivered',loc:'Recipient Address',time:'Expected: Jun 26',done:false}
+  ]
+};
+function doTrack(){
+  const val=document.getElementById('track-input').value.trim();
+  if(!val){alert('Please enter a tracking number.');return;}
+  const statusEl=document.getElementById('track-status');
+  const stepsEl=document.getElementById('track-steps');
+  statusEl.textContent=`Reference: ${val} — ${fakeData.status}`;
+  stepsEl.innerHTML=fakeData.steps.map((s,i)=>`
+    <li>
+      <div class="step-indicator">
+        <span class="step-dot ${s.done?'done':s.current?'current':''}"></span>
+        ${i<fakeData.steps.length-1?'<div class="step-line"></div>':''}
+      </div>
+      <div class="step-info">
+        <strong>${s.label}</strong>
+        <span class="step-loc">${s.loc} — ${s.time}</span>
+      </div>
+    </li>`).join('');
+  document.getElementById('track-result').classList.add('show');
+}
+
+/* ── FAQ ── */
+function toggleFaq(el){
+  const item=el.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+/* ── MODALS ── */
+function showModal(id){document.getElementById(id).classList.add('show');}
+function closeModal(id){document.getElementById(id).classList.remove('show');}
+document.querySelectorAll('.modal-overlay').forEach(m=>{
+  m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('show');});
+});
+</script>
+</body>
+</html>
